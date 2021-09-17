@@ -23,20 +23,6 @@ export class WishlistPageComponent implements OnInit {
   }
 
   remove(id) {
-    // console.log(id);
-    // this.items.filter((item) => item !== id);
-    // this.favourites$.pipe(
-    //   filter((item) => {
-    //     console.log(item);
-        
-    //     if (item == id) {
-    //       return true;
-    //     } else {
-    //        return false;
-    //     }
-    //   })
-    // ).subscribe()
-    // this.items.splice(id, 1);
 		this.store.dispatch(fromAction.removeBook({ id }));
   }
 }

@@ -18,9 +18,8 @@ export class SearchService {
       return empty()
     } else {
       let params = term
-      return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=${params}&maxResults=20&startIndex=${(pageNumber - 1)*20}`).pipe(
+      return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=${params}&maxResults=${20}&startIndex=${(pageNumber - 1)*20}`).pipe(
         map(res => {
-          console.log(res);
           return this.searchResults = res
         })
       )

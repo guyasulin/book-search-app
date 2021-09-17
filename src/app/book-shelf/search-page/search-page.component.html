@@ -10,9 +10,13 @@
   <div class="books" *ngIf="searchResults">
     <app-book *ngFor="let book of pageinationItems | paginate: { itemsPerPage: 10, currentPage: page }" [book]="book" [pageinationItems]="pageinationItems"></app-book>
   </div>
-  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+
+  <div class="paginate" *ngIf="searchResults">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
 
   <div *ngIf="errorMessage">
-
+    <h2>Error</h2>
+    <p class="error">{{ errorMessage }}</p>
   </div>
 </div>

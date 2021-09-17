@@ -11,16 +11,16 @@ import { SearchService } from '../services/search.service';
 	styleUrls: [ './search-page.component.scss' ]
 })
 export class SearchPageComponent implements OnInit {
-	public loadin: boolean;
   public searchTrem = new Subject<string>();
   public sub: Subscription;
 	public searchResults: Book;
 	public errorMessage: string;
   public pageinationItems: any;
+  public page: any;
 	public searchForm = new FormGroup({
 		search: new FormControl('')
   });
-  
+
 	constructor(private searchService: SearchService) {}
 
 	ngOnInit(): void {
@@ -30,7 +30,9 @@ export class SearchPageComponent implements OnInit {
 	search() {
 		this.searchTrem.pipe(
       map((e:any) => {
-        console.log(e.target.value);
+        if (e.target.value == '') {
+          this.pageinationItems = []
+        }
         return e.target.value;
       }),
       debounceTime(400),
@@ -39,17 +41,12 @@ export class SearchPageComponent implements OnInit {
        return this.searchService._search(term)
       }), 
       catchError((e) => {
-        console.log(e);
-        
+        this.errorMessage = e;
         return throwError(e)
       })
     ).subscribe(v => {
-      if (v.totalItems == 0) {
-        
-      }
       this.searchResults = v.items;
-      this.pageinationItems = this.pageinationItems;
-      console.log(v);
+      this.pageinationItems = this.searchResults;
     })
   }
   

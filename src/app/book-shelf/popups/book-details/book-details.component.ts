@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import * as fromWishlist from '../../store/wishlist.reducer';
 import * as fromAction from '../../store/wishlist.actions';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-book-details',
@@ -15,6 +16,7 @@ export class BookDetailsComponent implements OnInit {
     public dialogRef: MatDialogRef<BookDetailsComponent>,
     @Inject(MAT_DIALOG_DATA) public book: any,
     private store: Store<fromWishlist.State>,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {}
@@ -25,6 +27,11 @@ export class BookDetailsComponent implements OnInit {
 
   save(favourite) {
     this.dialogRef.close();
+    this.openSnackBar('Saved successfully')
 		this.store.dispatch(fromAction.addBookToWishlists({ book: favourite }));
+  }
+
+  openSnackBar(message: string, action?: string) {
+      this._snackBar.open(message, action);
   }
 }
