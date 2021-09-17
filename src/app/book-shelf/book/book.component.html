@@ -1,0 +1,18 @@
+<div class="book">
+  <div class="card-group">
+    <div class="card">
+      <img [src]="book.volumeInfo?.imageLinks?.smallThumbnail" class="card-img-top">
+
+      <div class="card-body">
+        <h5 class="card-title">{{ book.volumeInfo.title }}</h5>
+        <p>{{ book.volumeInfo.authors }}</p>
+        <p class="card-des">{{ book.volumeInfo.subtitle }}</p>
+        <h5 class="card-des">{{ book.volumeInfo.publishedDate }}</h5>
+      </div>
+
+      <div class="footer">
+        <button type="button" class="btn-details" (click)="openDialogBook()">More Details</button>
+      </div>
+    </div>
+  </div>
+</div>

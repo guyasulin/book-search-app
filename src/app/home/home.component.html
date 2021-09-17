@@ -1,0 +1,15 @@
+<div class="home-page">
+    <div>
+        <form #form="ngForm">
+            <h4>Set a username to move to the search page</h4>
+            <mat-form-field class="form-field" appearance="fill">
+                <mat-label>userName</mat-label>
+                <input class="inputText" matInput type="text" [(ngModel)]="userName" name="userName" required>
+                <mat-error *ngIf="!form.hasError('text') && !form.hasError('required')">
+                        Please enter a userName
+                </mat-error>
+            </mat-form-field>
+            <button class="btn-next" type="submit" [disabled]="!form.valid" (click)="goSearchPage()">Next</button>
+        </form>
+    </div>
+</div>

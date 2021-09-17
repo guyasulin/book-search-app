@@ -1,0 +1,38 @@
+.card-group {
+    .card {
+        border: 1px solid rgba(0,0,0,.125);
+        margin: 0 15px 20px;
+        width: 250px;
+
+        .card-img-top {
+            height: 320px;
+            width: 250px;
+        }
+
+        .card-des {
+            font-size: 12px;
+        }
+
+        .card-body {
+            padding: 0 15px;
+            height: 150px;
+            overflow: auto;
+            color: gray;
+        }
+
+        .footer {
+            padding:15px;
+            .btn-details {
+                padding: 8px 15px;
+                color: white;
+                cursor: pointer;
+                font-size: 14px;
+                border: transparent;
+                letter-spacing: 1.25px;
+                background-color:cadetblue;
+                box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.39);
+                border-radius: 2.6px;
+            }
+        }
+    }
+}

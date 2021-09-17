@@ -1,0 +1,20 @@
+<div class="book-details">
+  <div>
+    <div class="title">
+      <h1 mat-dialog-title>
+        <img class="image" [src]="book.volumeInfo?.imageLinks?.smallThumbnail" >
+        {{ book.volumeInfo.title }}</h1>
+    </div>
+    <div class="content" mat-dialog-content>
+      <p>{{ book.volumeInfo.subtitle }}</p>
+      <p>{{ book.volumeInfo.authors }}</p>
+      <p>{{ book.volumeInfo.publisher }}</p>
+      <p>{{ book.volumeInfo.categories }}</p>
+      <p>{{ book.volumeInfo.publishedDate }}</p>
+    </div>
+    <div class="footer" mat-dialog-actions>
+      <button mat-button class="btn btn-close" (click)="onNoClick()">Close</button>
+      <button mat-button class="btn btn-save" (click)="save(book)">Save</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="search-bar">
+
+  <form class="form" [formGroup]="searchForm">
+      <mat-form-field class="search" appearance="fill">
+        <input matInput type="text" formControlName="search" (keyup)="searchTrem.next($event)"
+          placeholder="Search Book">
+      </mat-form-field>
+  </form>
+
+  <div class="books" *ngIf="searchResults">
+    <app-book *ngFor="let book of pageinationItems | paginate: { itemsPerPage: 10, currentPage: page }" [book]="book" [pageinationItems]="pageinationItems"></app-book>
+  </div>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+
+  <div *ngIf="errorMessage">
+
+  </div>
+</div>

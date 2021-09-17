@@ -1,0 +1,20 @@
+
+
+<div class="wishlist">
+  <div class="card-group">
+    <div class="card" *ngFor="let favourite of favourites$ | async ">
+      <img [src]="favourite.volumeInfo?.imageLinks?.smallThumbnail" class="card-img-top">
+
+      <div class="card-body">
+        <h5 class="card-title">{{ favourite.volumeInfo.title }}</h5>
+        <p>{{ favourite.volumeInfo.authors }}</p>
+        <p class="card-des">{{ favourite.volumeInfo.subtitle }}</p>
+        <h5 class="card-des">{{ favourite.volumeInfo.publishedDate }}</h5>
+      </div>
+
+      <div class="footer">
+        <button type="button" class="btn-details" (click)="remove(favourite.id)">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>
